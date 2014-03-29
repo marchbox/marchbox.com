@@ -1,0 +1,211 @@
+/* Backgrounds */
+
+$bg-base: #eee;
+$bg-figure: #e1e1e1;
+
+/* Typography */
+
+$text-primary: #333;
+$text-secondary: #999;
+$heading-margin-top: 1.25rem;
+$heading-margin-bottom: .625rem;
+
+/* Grid */
+
+$fullwidth: 810;
+$colwidth: 54;
+$gutterwidth: 30;
+
+@mixin cols($n, $first:false) {
+  margin-bottom: 40px;
+  margin-top: 40px;
+
+  @media screen and (min-width: $breakpoint) {
+    float: left;
+    width: ($colwidth * $n / $fullwidth + $gutterwidth * ($n - 1) / $fullwidth) * 100%;
+
+    @if $first == true {
+      margin-left: 0;
+    } @else {
+      margin-left: $gutterwidth / $fullwidth * 100%;
+    }
+  }
+}
+
+/* Layout */
+
+$breakpoint: $fullwidth + px;
+
+@mixin compress-inner-space() {
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Elements */
+
+$profile-image-width: 84;
+$profile-image-border-width: 4;
+
+
+
+@media screen, projection, print {
+
+  html {
+    margin: 0;
+    padding: 30px;
+  }
+
+  body {
+    background-color: $bg-base;
+    color: $text-primary;
+    font: 16px/1.6 "Roboto Slab", serif;
+    margin: 0 auto;
+    max-width: 810px;
+    text-align: center;
+
+    @media screen and (min-width: $breakpoint) {
+      text-align: left;
+    }
+
+    &:after {
+      content:" ";
+      clear: both;
+      display: block;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  h1,
+  h2 {
+    font-weight: normal;
+    margin: $heading-margin-top 0 $heading-margin-bottom;
+  }
+
+  h1 {
+    font-size: 44px;
+
+    @media screen and (min-width: $breakpoint) {
+      align-content: center;
+      display: flex;
+      margin-top: 10px !important;
+    }
+
+    &:before {
+      background: url(../images/profile.jpg) no-repeat center center;
+      background-size: $profile-image-width + px;
+      border: $profile-image-border-width + px solid #fff;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      margin: auto;
+      height: $profile-image-width + px;
+      width: $profile-image-width + px;
+
+      @media screen and (min-width: $breakpoint) {
+        display: inline-block;
+        margin-left: -$profile-image-border-width + px;
+        margin-right: $gutterwidth / 2 + px;
+      }
+    }
+  }
+
+  h2 {
+    color: $text-secondary;
+    font-size: 24px;
+
+    h1 + & {
+      margin-top: -$heading-margin-top;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+      padding-left: $profile-image-width + ($gutterwidth / 2) + $profile-image-border-width + 2 + px;
+      margin-top: -($profile-image-width / 2 + $profile-image-border-width) + px !important;
+    }
+  }
+
+  a,
+  a:visited {
+    color: #4da6ff;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active, {
+    color: #4dd2ff;
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  article {
+    @include cols(6, true);
+    @include compress-inner-space();
+
+    ul {
+      color: $text-secondary;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      list-style: none;
+
+      &:after {
+        content: "·";
+        display: inline-block;
+        margin: 0 5px 0 10px;
+      }
+
+      &:last-child:after {
+        content:"";
+      }
+    }
+  }
+
+  aside {
+    $text-color: $bg-figure - ($bg-base - $text-secondary);
+
+    @include cols(4);
+    @include compress-inner-space();
+
+    color: $text-color;
+
+    a,
+    a:visited {
+      display: block;
+      color: $text-color;
+    }
+
+    figure {
+      background: $bg-figure;
+      border-radius: 8px;
+      margin: auto;
+      max-width: 320px;
+      opacity: 0;
+      padding: 10px;
+      transition: .3s;
+
+      @media screen and (min-width: $breakpoint) {
+        margin: -10px;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+}

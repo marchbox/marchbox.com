@@ -1,0 +1,3 @@
+path: /{slug}/               # The URL path format.
+view: /views/index.html      # The template to use.
+title: Pages                 # Collection's title.

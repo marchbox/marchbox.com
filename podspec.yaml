@@ -1,0 +1,15 @@
+grow_version: 0.0.26
+project: marchbox.com
+
+flags:
+  static_dir: /static/
+
+# preprocessors:
+# - kind: sass
+#   sass_dir: /source/sass/
+#   out_dir: /static/css/
+
+deployments:
+  default:
+    destination: local
+    out_dir: ../marchbox.github.io/

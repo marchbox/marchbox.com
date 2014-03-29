@@ -1,0 +1,1 @@
+function gram(e){if(200===e.meta.code&&document.querySelector){var a=e.data[0];if("image"!==a.type)return;var t=a.images.standard_resolution.url,i=a.link,r=a.caption.text,n='<a href="'+i+'" title="Visit my Instagram →"><img src="'+t+'" alt="'+r+'"><figcaption>'+r+"</figcaption></a>",c=document.querySelector("aside figure");c.innerHTML=n,c.className="active"}}
