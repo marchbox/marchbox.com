@@ -111,6 +111,7 @@ $profile-image-border-width: 4;
         display: inline-block;
         margin-left: -$profile-image-border-width + px;
         margin-right: $gutterwidth / 2 + px;
+        vertical-align: middle;
       }
     }
   }
