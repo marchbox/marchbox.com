@@ -1,4 +1,6 @@
 function gram(response) {
+  'use strict';
+
   if (response.meta.code === 200 && document.querySelector &&
       window.addEventListener) {
     var media = response.data[0];
@@ -11,11 +13,14 @@ function gram(response) {
     var link = media.link;
     var caption = media.caption.text;
 
-    var figureEl = document.querySelector('aside figure');
+    var asideEl = document.querySelector('aside');
+    var anchorEl = asideEl.querySelector('a');
 
-    var anchorEl = document.createElement('a');
     anchorEl.href = link;
-    anchorEl.title = 'Visit my Instagram →';
+    anchorEl.title = anchorEl.innerText;
+    anchorEl.innerHTML = '';
+
+    var figureEl = document.createElement('figure');
 
     var figcaptionEl = document.createElement('figcaption');
     figcaptionEl.innerText = caption;
@@ -24,10 +29,11 @@ function gram(response) {
     imgEl.alt = caption;
 
     imgEl.addEventListener('load', function() {
-      anchorEl.appendChild(imgEl);
-      anchorEl.appendChild(figcaptionEl);
-      figureEl.appendChild(anchorEl);
-      figureEl.className = 'active';
+      figureEl.appendChild(imgEl);
+      figureEl.appendChild(figcaptionEl);
+      anchorEl.appendChild(figureEl);
+
+      asideEl.className = 'active';
     }, false);
 
     imgEl.src = src;

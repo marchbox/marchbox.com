@@ -183,6 +183,8 @@ $profile-image-border-width: 4;
     @include compress-inner-space();
 
     color: $text-color;
+    opacity: 0;
+    transition: .3s;
 
     a,
     a:visited {
@@ -190,21 +192,19 @@ $profile-image-border-width: 4;
       color: $text-color;
     }
 
+    &.active {
+      opacity: 1;
+    }
+
     figure {
       background: $bg-figure;
       border-radius: 8px;
       margin: auto;
       max-width: 320px;
-      opacity: 0;
       padding: 10px;
-      transition: .3s;
 
       @media screen and (min-width: $breakpoint) {
         margin: -10px;
-      }
-
-      &.active {
-        opacity: 1;
       }
     }
   }
