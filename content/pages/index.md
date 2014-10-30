@@ -7,9 +7,9 @@ $title@: Zacky Ma · I make websites.
 
 ## I make websites.
 
-Hi there. I’m a web developer at Google, and I make informational websites.
+Hi there. I’m a UX Engineer at Google, and I make informational websites.
 
-I spend my time learning and playing with content strategy, information architecture, interaction and visual design, user research, localization, and of course, front-end web development.
+I spend my time learning and playing with research, content, design, development and localization.
 
 - [+zackyma](http://google.com/+zackyma)
 - [@marchbox](http://twitter.com/marchbox)
